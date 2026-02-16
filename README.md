@@ -2,56 +2,60 @@
 
 ![Yak Tea Time](tea-time.gif)
 
-## The Real Work Problem
+## Here's the problem
 
-Animation studios today face an impossible paradox: teams are more talented than ever, but they spend most of their day on everything *except* what they do best. 
+I've watched animators spend more time hunting for reference images than actually animating.
 
-The real work (crafting shots, refining character performances, pushing creative boundaries) keeps getting pushed to the margins. Instead, animators drown in a sea of lower-priority tasks: checking calendars, hunting for references, generating variations, exporting frames, managing files, coordinating schedules, and fielding constant interruptions.
+They check Slack. Then Discord. Then Telegram. Then their calendar. Then back to Slack. By the time they find what they need, the creative momentum is gone.
 
-The industry has tried to solve this with bigger teams, tighter schedules, and better tools. But the fundamental problem remains: there's never enough time to do the work that matters, because the operational overhead keeps growing.
+The real work (crafting shots, refining performances, pushing boundaries) keeps getting pushed to the margins. Instead, teams drown in operational overhead: checking calendars, generating variations, managing files, coordinating schedules.
 
-## Meet Yak: Your Real Work Companion
+Bigger teams don't fix this. Tighter deadlines don't fix this. Better tools that require switching contexts definitely don't fix this.
 
-Yak is an AI companion designed specifically for creative teams who need to reclaim their time. It lives on your studio network and connects to the platforms you already use, including Discord, Telegram, Slack, and Email, so you can delegate the busywork without switching contexts.
+## Meet Yak
 
-Unlike cloud-based assistants that require subscriptions and send your data to third parties, Yak runs entirely on your own hardware (designed for the NVIDIA DGX Spark or any Linux/macOS machine with a GPU and 16+ GB memory). Your conversations, your files, your creative work. Everything stays private.
+Yak is a tool I built because I was tired of watching creative teams lose hours to administrative tasks.
 
-Yak handles the operational overhead so you can focus on the craft.
+It lives on your network and talks to you where you already work: Discord, Telegram, Slack, Email. No new apps to learn. No context switching.
 
-## Yak Features
+Here's what matters: Yak runs entirely on your own hardware. Your conversations, your files, your work. Everything stays on your machine. No subscriptions. No data leaving your studio.
 
-**Automate repetitive tasks**
-- Check calendars and schedules: Ask Yak to summarize your schedule for the day
-- Generate reference images and variations: "Show me 5 poses for a tired hero"
-- Animate still images into short video previews
-- Search the web for reference material and summarize findings
-- Schedule reminders and recurring tasks: "Remind me to review the dailies at 5pm"
+It handles the busywork so you can focus on the craft.
 
-**Work with your files and tools**
+## What Yak Actually Does
+
+**Automate the repetitive stuff**
+- Ask Yak what's on your calendar today
+- Generate reference images: "Show me 5 poses for a tired hero"
+- Animate stills into short video previews
+- Search the web and summarize what it finds
+- Set reminders: "Tell me to review dailies at 5pm"
+
+**Work with your actual files**
 - Read, write, and organize files on your machine
-- Run commands and scripts to automate pipelines
-- Keep persistent memory across conversations
-- Help with technical troubleshooting
+- Run commands and scripts
+- Remember things across conversations
+- Help troubleshoot technical issues
 
-**Stay connected across platforms**
-- Chat from anywhere: phone, laptop, or terminal
-- Get updates and notifications where you work
-- No need to open yet another application
+**Stay connected**
+- Chat from your phone, laptop, or terminal
+- Get updates where you already hang out
+- No need to open another app
 
-**Generate creative assets**
-- Create images using FLUX with optional art styles (Arcane, Devil May Cry, and more)
-- Turn still images into animated video previews
-- Generate variations for exploration
+**Generate assets**
+- Create images with FLUX
+- Apply art styles (Arcane, Devil May Cry, and more)
+- Turn stills into animated previews
 
-## Requirements
+## What You Need
 
-- **NVIDIA DGX Spark** (or equivalent: any Linux/macOS machine with an NVIDIA GPU and 16+ GB of shared/unified memory)
+- **NVIDIA DGX Spark** or any Linux/Mac machine with an NVIDIA GPU and 16+ GB memory
 - **Docker** (recommended) or Python 3.11+
-- **Ollama** installed and running
+- **Ollama** running locally
 
-## Quick Start (Docker)
+## Get Started (Docker)
 
-This is the easiest way to get Yak running. The Docker image includes everything: the AI model, image generation server, and all dependencies.
+This is the easiest path. The Docker image includes everything.
 
 **1. Clone and configure**
 
@@ -61,15 +65,15 @@ cd yak
 cp .env.example .env
 ```
 
-Edit `.env` and fill in your bot tokens for whichever chat platforms you want to use (at minimum, set one like `YAK_CHANNELS__DISCORD__TOKEN` or `YAK_CHANNELS__TELEGRAM__TOKEN`).
+Edit `.env` and add your bot tokens for whichever platforms you want to use. You only need one to start.
 
-**2. Build the Docker image**
+**2. Build**
 
 ```bash
 docker build -t yak .
 ```
 
-This will download the AI model and image generation model during the build, so it may take a while the first time.
+This downloads the models during build. First time takes a while.
 
 **3. Run**
 
@@ -77,14 +81,14 @@ This will download the AI model and image generation model during the build, so 
 docker run --gpus all -p 18790:18790 yak
 ```
 
-That's it. Yak will start up, connect to your chat platforms, and begin responding to messages.
+That's it. Yak connects to your platforms and starts responding.
 
-## Quick Start (Without Docker)
+## Get Started (No Docker)
 
-If you prefer to run Yak directly:
+If you prefer running directly:
 
 ```bash
-# Install Ollama and pull a model
+# Install Ollama and get a model
 ollama pull nemotron-3-nano
 
 # Install Yak
@@ -94,57 +98,57 @@ pip install -e .
 cp .env.example .env
 # Edit .env with your settings
 
-# Start the gateway (connects to all enabled chat platforms)
+# Start
 yak gateway
 ```
 
-Or for a quick one-off chat in the terminal:
+Or just chat once in your terminal:
 
 ```bash
 yak agent -m "Hello!"
 ```
 
-## Connecting Chat Platforms
+## Connect Your Platforms
 
-Yak supports many messaging platforms. You only need to set up the ones you want.
+Yak supports the platforms you already use. Set up one or all of them.
 
 | Platform | What you need |
 |----------|---------------|
-| **Telegram** | A bot token from [@BotFather](https://t.me/BotFather) |
-| **Discord** | A bot token from the [Developer Portal](https://discord.com/developers/applications) |
-| **Slack** | A bot token + app token from [Slack API](https://api.slack.com/apps) |
-| **Email** | IMAP/SMTP credentials (works with Gmail, Outlook, etc.) |
+| **Telegram** | Bot token from [@BotFather](https://t.me/BotFather) |
+| **Discord** | Bot token from [Discord Developer Portal](https://discord.com/developers/applications) |
+| **Slack** | Bot token + app token from [Slack API](https://api.slack.com/apps) |
+| **Email** | IMAP/SMTP credentials (Gmail, Outlook, etc.) |
 | **WhatsApp** | Scan a QR code to link your account |
 
-For each platform, add the credentials to your `.env` file. See `.env.example` for all available settings.
+Add credentials to your `.env` file. See `.env.example` for all options.
 
-### Example: Discord
+### Discord Example
 
 1. Create a bot at [discord.com/developers](https://discord.com/developers/applications)
-2. Enable **Message Content Intent** in the Bot settings
+2. Enable **Message Content Intent** in Bot settings
 3. Generate an invite link (OAuth2 > bot scope > Send Messages + Read Message History)
-4. Add to your `.env`:
+4. Add to `.env`:
    ```
-   YAK_CHANNELS__DISCORD__TOKEN=your_bot_token_here
+   YAK_CHANNELS__DISCORD__TOKEN=your_token_here
    ```
-5. Invite the bot to your server and start chatting
+5. Invite the bot and start chatting
 
-### Example: Telegram
+### Telegram Example
 
-1. Message [@BotFather](https://t.me/BotFather) on Telegram and create a new bot
-2. Add to your `.env`:
+1. Message [@BotFather](https://t.me/BotFather) and create a new bot
+2. Add to `.env`:
    ```
-   YAK_CHANNELS__TELEGRAM__TOKEN=your_bot_token_here
+   YAK_CHANNELS__TELEGRAM__TOKEN=your_token_here
    ```
-3. Start chatting with your bot
+3. Start chatting
 
 ## Google Calendar
 
-Yak can read your Google Calendar using a service account (read-only access).
+Yak can read your calendar using a service account (read-only).
 
 1. Create a service account in [Google Cloud Console](https://console.cloud.google.com/) with Calendar API enabled
 2. Download the JSON key file
-3. Share your Google Calendar with the service account's email address
+3. Share your calendar with the service account email
 4. Configure in `.env`:
    ```
    YAK_TOOLS__CALENDAR__ENABLED=true
@@ -155,10 +159,10 @@ Yak can read your Google Calendar using a service account (read-only access).
 
 ## Image and Video Generation
 
-Yak includes a built-in image generation server powered by FLUX.2 Klein. You can ask Yak to create images and animate them into short videos.
+Yak includes FLUX.2 Klein for image generation. You can create images and animate them.
 
-Available art styles (via LoRA):
-- **Arcane**: Arcane / League of Legends visual style
+**Art styles available:**
+- **Arcane**: Arcane / League of Legends style
 - **Cyanide & Happiness**: Stick figure webcomic style
 - **Devil May Cry**: DMC game art style
 
@@ -166,7 +170,7 @@ Example: Tell Yak to draw a sunset over Tokyo in the Arcane style and animate it
 
 ## Scheduled Tasks
 
-Yak has a built-in scheduler for reminders and recurring tasks.
+Yak has a scheduler for reminders and recurring tasks.
 
 ```bash
 # Add a reminder
@@ -175,18 +179,18 @@ yak cron add --name "stretch" --message "Time to stretch!" --every 7200
 # Daily digest at 8am
 yak cron add --name "morning" --message "Good morning! Give me today's weather and calendar." --cron "0 8 * * *"
 
-# List scheduled tasks
+# List tasks
 yak cron list
 ```
 
-## CLI Reference
+## CLI Commands
 
 | Command | What it does |
 |---------|-------------|
-| `yak gateway` | Start Yak and connect to all enabled chat platforms |
-| `yak agent -m "..."` | Send a single message and get a response |
-| `yak agent` | Start an interactive chat in the terminal |
-| `yak status` | Show current configuration and status |
+| `yak gateway` | Start Yak and connect to all enabled platforms |
+| `yak agent -m "..."` | Send one message and get a response |
+| `yak agent` | Interactive chat in terminal |
+| `yak status` | Show configuration and status |
 | `yak onboard` | First-time setup wizard |
 | `yak cron list` | Show scheduled tasks |
 
@@ -194,24 +198,30 @@ yak cron list
 
 ```
 yak/
-  agent/        Core AI agent (reasoning loop, tool execution)
-  channels/     Chat platform connectors (Discord, Telegram, etc.)
-  integrations/ External services (Google Calendar, Fal video)
-  workflows/    Multi-step pipelines (text to video)
-  skills/       Bundled capabilities (weather, GitHub, tmux, etc.)
-  providers/    LLM backends (Ollama, plus optional cloud providers)
+  agent/        Core reasoning and tool execution
+  channels/     Platform connectors (Discord, Telegram, etc.)
+  integrations/ External services (Calendar, video generation)
+  workflows/    Multi-step pipelines
+  skills/       Capabilities (weather, GitHub, etc.)
+  providers/    LLM backends (Ollama, optional cloud)
   cron/         Task scheduler
-  config/       Settings and environment loading
+  config/       Settings and environment
   cli/          Command-line interface
 ```
 
 ## Security
 
-- Yak runs entirely on your own hardware. Your conversations and data stay on your machine.
-- No data is sent to cloud AI services unless you explicitly configure a cloud LLM provider.
-- Bot tokens and credentials are stored in your local `.env` file (never committed to git).
-- See [SECURITY.md](SECURITY.md) for the full security policy.
+- Yak runs on your hardware. Your data stays on your machine.
+- No data sent to cloud AI services unless you configure a cloud provider.
+- Tokens and credentials live in your local `.env` file (never committed).
+- See [SECURITY.md](SECURITY.md) for full policy.
 
 ## License
 
 Apache 2.0. See [LICENSE](LICENSE) for details.
+
+---
+
+Cheers,
+
+Jeremiah
