@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Local env/secrets
+.env
+.env.*
+!.env.example
+
+# Local runtime data
+storage/
+workspace/
+logs/
+*.log
+creds/
+
+# Tooling
+.DS_Store

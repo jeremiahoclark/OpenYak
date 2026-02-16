@@ -1,0 +1,15 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+dist/
+build/
+.git
+.venv
+.assets
+node_modules/
+bridge/dist/
+workspace/
+logs/
+storage/
