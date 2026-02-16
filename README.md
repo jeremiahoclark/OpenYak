@@ -1,18 +1,47 @@
 # Yak
 
-**Yak is a personal AI assistant that lives on your home network.** It connects to your favorite messaging apps — Discord, Telegram, Slack, Email, and more — so you can talk to it from anywhere, on any device. Ask it questions, have it check your calendar, search the web, generate images and videos, or schedule reminders. It runs 24/7 on your own hardware, keeping your data private.
+<video src="https://github.com/jeremiahoclark/OpenYak/raw/main/tea-time.mp4" width="100%" />
 
-Yak is designed for the **NVIDIA DGX Spark** (or any similar computer with a local GPU). It uses [Ollama](https://ollama.com) to run AI models directly on your machine — no cloud AI subscriptions required.
+## The Real Work Problem
 
-## What can Yak do?
+Animation studios today face an impossible paradox: teams are more talented than ever, but they spend most of their day on everything *except* what they do best. 
 
-- **Chat from anywhere** — Talk to Yak through Discord, Telegram, Slack, WhatsApp, Email, or several other platforms. Send a message from your phone and get a reply in seconds.
-- **Check your calendar** — "What's on my schedule today?" Yak connects to Google Calendar and gives you a plain-English summary.
-- **Search the web** — Ask Yak to look something up and it will search the internet and summarize what it finds.
-- **Generate images and videos** — Describe what you want and Yak will create it using FLUX image generation, with optional art styles (Arcane, Devil May Cry, and more). It can then animate the image into a short video.
-- **Schedule reminders and recurring tasks** — "Remind me to stretch every 2 hours" or "Send me a weather report every morning at 8am."
-- **Read, write, and manage files** — Yak can work with files on your machine, run commands, and help with technical tasks.
-- **Remember things** — Yak keeps conversation history and persistent memory across sessions.
+The real work—crafting shots, refining character performances, pushing creative boundaries—keeps getting pushed to the margins. Instead, animators drown in a sea of lower-priority tasks: checking calendars, hunting for references, generating variations, exporting frames, managing files, coordinating schedules, and fielding constant interruptions.
+
+The industry has tried to solve this with bigger teams, tighter schedules, and better tools. But the fundamental problem remains: there's never enough time to do the work that matters, because the operational overhead keeps growing.
+
+## Meet Yak: Your Real Work Companion
+
+Yak is an AI companion designed specifically for creative teams who need to reclaim their time. It lives on your studio network and connects to the platforms you already use—Discord, Telegram, Slack, Email—so you can delegate the busywork without switching contexts.
+
+Unlike cloud-based assistants that require subscriptions and send your data to third parties, Yak runs entirely on your own hardware (designed for the NVIDIA DGX Spark or any Linux/macOS machine with a GPU and 16+ GB memory). Your conversations, your files, your creative work—everything stays private.
+
+Yak handles the operational overhead so you can focus on the craft.
+
+## What Can Yak Do?
+
+**Automate repetitive tasks**
+- Check calendars and schedules: "What's on the docket today?"
+- Generate reference images and variations: "Show me 5 poses for a tired hero"
+- Animate still images into short video previews
+- Search the web for reference material and summarize findings
+- Schedule reminders and recurring tasks: "Remind me to review the dailies at 5pm"
+
+**Work with your files and tools**
+- Read, write, and organize files on your machine
+- Run commands and scripts to automate pipelines
+- Keep persistent memory across conversations
+- Help with technical troubleshooting
+
+**Stay connected across platforms**
+- Chat from anywhere—phone, laptop, or terminal
+- Get updates and notifications where you work
+- No need to open yet another application
+
+**Generate creative assets**
+- Create images using FLUX with optional art styles (Arcane, Devil May Cry, and more)
+- Turn still images into animated video previews
+- Generate variations for exploration
 
 ## Requirements
 
@@ -20,9 +49,9 @@ Yak is designed for the **NVIDIA DGX Spark** (or any similar computer with a loc
 - **Docker** (recommended) or Python 3.11+
 - **Ollama** installed and running
 
-## Quick start (Docker)
+## Quick Start (Docker)
 
-This is the easiest way to get Yak running. The Docker image includes everything — the AI model, image generation server, and all dependencies.
+This is the easiest way to get Yak running. The Docker image includes everything—the AI model, image generation server, and all dependencies.
 
 **1. Clone and configure**
 
@@ -50,7 +79,7 @@ docker run --gpus all -p 18790:18790 yak
 
 That's it. Yak will start up, connect to your chat platforms, and begin responding to messages.
 
-## Quick start (without Docker)
+## Quick Start (Without Docker)
 
 If you prefer to run Yak directly:
 
@@ -75,7 +104,7 @@ Or for a quick one-off chat in the terminal:
 yak agent -m "Hello!"
 ```
 
-## Connecting chat platforms
+## Connecting Chat Platforms
 
 Yak supports many messaging platforms. You only need to set up the ones you want.
 
@@ -124,7 +153,7 @@ Yak can read your Google Calendar using a service account (read-only access).
    YAK_TOOLS__CALENDAR__TIMEZONE=America/Chicago
    ```
 
-## Image and video generation
+## Image and Video Generation
 
 Yak includes a built-in image generation server powered by FLUX.2 Klein. You can ask Yak to create images and animate them into short videos.
 
@@ -135,7 +164,7 @@ Available art styles (via LoRA):
 
 Just ask naturally: *"Draw me a sunset over Tokyo in the Arcane style and turn it into a video."*
 
-## Scheduled tasks
+## Scheduled Tasks
 
 Yak has a built-in scheduler for reminders and recurring tasks.
 
@@ -150,7 +179,7 @@ yak cron add --name "morning" --message "Good morning! Give me today's weather a
 yak cron list
 ```
 
-## CLI reference
+## CLI Reference
 
 | Command | What it does |
 |---------|-------------|
@@ -161,7 +190,7 @@ yak cron list
 | `yak onboard` | First-time setup wizard |
 | `yak cron list` | Show scheduled tasks |
 
-## Project structure
+## Project Structure
 
 ```
 yak/
