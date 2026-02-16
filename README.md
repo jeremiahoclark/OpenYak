@@ -4,22 +4,22 @@
 
 Animation studios today face an impossible paradox: teams are more talented than ever, but they spend most of their day on everything *except* what they do best. 
 
-The real work—crafting shots, refining character performances, pushing creative boundaries—keeps getting pushed to the margins. Instead, animators drown in a sea of lower-priority tasks: checking calendars, hunting for references, generating variations, exporting frames, managing files, coordinating schedules, and fielding constant interruptions.
+The real work (crafting shots, refining character performances, pushing creative boundaries) keeps getting pushed to the margins. Instead, animators drown in a sea of lower-priority tasks: checking calendars, hunting for references, generating variations, exporting frames, managing files, coordinating schedules, and fielding constant interruptions.
 
 The industry has tried to solve this with bigger teams, tighter schedules, and better tools. But the fundamental problem remains: there's never enough time to do the work that matters, because the operational overhead keeps growing.
 
 ## Meet Yak: Your Real Work Companion
 
-Yak is an AI companion designed specifically for creative teams who need to reclaim their time. It lives on your studio network and connects to the platforms you already use—Discord, Telegram, Slack, Email—so you can delegate the busywork without switching contexts.
+Yak is an AI companion designed specifically for creative teams who need to reclaim their time. It lives on your studio network and connects to the platforms you already use, including Discord, Telegram, Slack, and Email, so you can delegate the busywork without switching contexts.
 
-Unlike cloud-based assistants that require subscriptions and send your data to third parties, Yak runs entirely on your own hardware (designed for the NVIDIA DGX Spark or any Linux/macOS machine with a GPU and 16+ GB memory). Your conversations, your files, your creative work—everything stays private.
+Unlike cloud-based assistants that require subscriptions and send your data to third parties, Yak runs entirely on your own hardware (designed for the NVIDIA DGX Spark or any Linux/macOS machine with a GPU and 16+ GB memory). Your conversations, your files, your creative work. Everything stays private.
 
 Yak handles the operational overhead so you can focus on the craft.
 
-## What Can Yak Do?
+## Yak Features
 
 **Automate repetitive tasks**
-- Check calendars and schedules: "What's on the docket today?"
+- Check calendars and schedules: Ask Yak to summarize your schedule for the day
 - Generate reference images and variations: "Show me 5 poses for a tired hero"
 - Animate still images into short video previews
 - Search the web for reference material and summarize findings
@@ -32,7 +32,7 @@ Yak handles the operational overhead so you can focus on the craft.
 - Help with technical troubleshooting
 
 **Stay connected across platforms**
-- Chat from anywhere—phone, laptop, or terminal
+- Chat from anywhere: phone, laptop, or terminal
 - Get updates and notifications where you work
 - No need to open yet another application
 
@@ -49,7 +49,7 @@ Yak handles the operational overhead so you can focus on the craft.
 
 ## Quick Start (Docker)
 
-This is the easiest way to get Yak running. The Docker image includes everything—the AI model, image generation server, and all dependencies.
+This is the easiest way to get Yak running. The Docker image includes everything: the AI model, image generation server, and all dependencies.
 
 **1. Clone and configure**
 
@@ -156,11 +156,11 @@ Yak can read your Google Calendar using a service account (read-only access).
 Yak includes a built-in image generation server powered by FLUX.2 Klein. You can ask Yak to create images and animate them into short videos.
 
 Available art styles (via LoRA):
-- **Arcane** — Arcane / League of Legends visual style
-- **Cyanide & Happiness** — Stick figure webcomic style
-- **Devil May Cry** — DMC game art style
+- **Arcane**: Arcane / League of Legends visual style
+- **Cyanide & Happiness**: Stick figure webcomic style
+- **Devil May Cry**: DMC game art style
 
-Just ask naturally: *"Draw me a sunset over Tokyo in the Arcane style and turn it into a video."*
+Example: Tell Yak to draw a sunset over Tokyo in the Arcane style and animate it into a video.
 
 ## Scheduled Tasks
 
@@ -212,4 +212,4 @@ yak/
 
 ## License
 
-Apache 2.0 — see [LICENSE](LICENSE) for details.
+Apache 2.0. See [LICENSE](LICENSE) for details.
