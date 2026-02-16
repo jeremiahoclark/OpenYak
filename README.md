@@ -1,5 +1,7 @@
 # Yak
 
+![Yak Tea Time](tea-time.gif)
+
 ## The Real Work Problem
 
 Animation studios today face an impossible paradox: teams are more talented than ever, but they spend most of their day on everything *except* what they do best. 
