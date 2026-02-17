@@ -2,50 +2,21 @@
 
 ![Yak Tea Time](tea-time.gif)
 
-## Here's the problem
+Animation, which was once reserved for children's cartoons, has entered a global new age. Demand for rich stories from perspectives of people all over the world has grown tremendously. With it, the consumer's appetite for dynamic animation. In 2025, *Solo Leveling* Season 2 won Anime of the Year. While the plot was good, what left watchers breathless was the extraordinary beauty and attention to detail of the combat scenes. This takes animators an extremely long time to produce (as long as one year for a single fight scene). Not to mention the countless other tasks animators have to work on, like world building "B-roll" shots and side character design and development. The standards for animators are high: not only do they have a wide range of work to do, they are expected to do it at an exceptional level of quality.
 
-I've watched animators spend more time hunting for reference images than actually animating.
+Yak is an answer to the overstretched animator. In the same way that Claude Code can extend an engineer's capabilities, Yak is designed to extend an animator's.
 
-They check Slack. Then Discord. Then Telegram. Then their calendar. Then back to Slack. By the time they find what they need, the creative momentum is gone.
+Yak has a couple of important features that allow it to do so:
 
-The real work (crafting shots, refining performances, pushing boundaries) keeps getting pushed to the margins. Instead, teams drown in operational overhead: checking calendars, generating variations, managing files, coordinating schedules.
+**1) The artist's art is protected, because Yak runs locally.** The generations, fine-tuning, and artistic style all stay on the artist's computer so they can rest assured that their art isn't being pipelined directly into the next image model.
 
-Bigger teams don't fix this. Tighter deadlines don't fix this. Better tools that require switching contexts definitely don't fix this.
+**2) It does real work -- anywhere you are.** Whether that's at your desktop or your phone, you can create line art and animation prototypes, all in the artist's style. This is because Yak has the ability to call image and video models that are on the computer -- including fine-tuned models specific to the artist. As a plus, Yak also has memory. So it can remember feedback you give it and how you like to describe your work.
 
-## Meet Yak
+**3) Yak can help the artist manage their broader workload as well.** Yak isn't limited to just image and art generation. It can have visibility into your calendar and email so that it has context into what's on your plate, and make proactive suggestions to help you manage your workload.
 
-Yak is a tool I built because I was tired of watching creative teams lose hours to administrative tasks.
+A special thank you to **NVIDIA** and **Hugging Face**. Yak's capability is unlocked by the power of the DGX Spark -- 128 GB of GPU memory allows for the LLM and image generation models to run at the same time on the device. Hugging Face has a powerful open source community of fine-tuned models that can easily be downloaded and run on the DGX Spark.
 
-It lives on your network and talks to you where you already work: Discord, Telegram, Slack, Email. No new apps to learn. No context switching.
-
-Here's what matters: Yak runs entirely on your own hardware. Your conversations, your files, your work. Everything stays on your machine. No subscriptions. No data leaving your studio.
-
-It handles the busywork so you can focus on the craft.
-
-## What Yak Actually Does
-
-**Automate the repetitive stuff**
-- Ask Yak what's on your calendar today
-- Generate reference images: "Show me 5 poses for a tired hero"
-- Animate stills into short video previews
-- Search the web and summarize what it finds
-- Set reminders: "Tell me to review dailies at 5pm"
-
-**Work with your actual files**
-- Read, write, and organize files on your machine
-- Run commands and scripts
-- Remember things across conversations
-- Help troubleshoot technical issues
-
-**Stay connected**
-- Chat from your phone, laptop, or terminal
-- Get updates where you already hang out
-- No need to open another app
-
-**Generate assets**
-- Create images with FLUX
-- Apply art styles (Arcane, Devil May Cry, and more)
-- Turn stills into animated previews
+---
 
 ## What You Need
 
@@ -61,7 +32,7 @@ This is the easiest path. The Docker image includes everything.
 
 ```bash
 git clone https://github.com/jeremiahoclark/OpenYak.git
-cd yak
+cd OpenYak
 cp .env.example .env
 ```
 
@@ -110,7 +81,7 @@ yak agent -m "Hello!"
 
 ## Connect Your Platforms
 
-Yak supports the platforms you already use. Set up one or all of them.
+Yak talks to you where you already work. Set up one or all of them.
 
 | Platform | What you need |
 |----------|---------------|
@@ -159,7 +130,7 @@ Yak can read your calendar using a service account (read-only).
 
 ## Image and Video Generation
 
-Yak includes FLUX.2 Klein for image generation. You can create images and animate them.
+Yak includes FLUX.2 Klein for image generation. You can create images and animate them into short videos.
 
 **Art styles available:**
 - **Arcane**: Arcane / League of Legends style
